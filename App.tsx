@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import Hero from './components/Hero';
-import About from './components/About';
-import Products from './components/Products';
-import HowItWorks from './components/HowItWorks';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
-import { Language, translations } from './translations';
+import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
+import Products from './components/Products.tsx';
+import HowItWorks from './components/HowItWorks.tsx';
+import Testimonials from './components/Testimonials.tsx';
+import Contact from './components/Contact.tsx';
+import Footer from './components/Footer.tsx';
+import FloatingWhatsApp from './components/FloatingWhatsApp.tsx';
+import { Language, translations } from './translations.ts';
 import { ChevronDown, Languages } from 'lucide-react';
 
 const Logo = () => (
