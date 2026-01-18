@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, MessageCircle, ArrowRight, ArrowLeft, Linkedin, Instagram, Globe, CheckCircle, Loader2, Facebook } from 'lucide-react';
+import { Mail, MessageCircle, ArrowRight, ArrowLeft, Linkedin, Instagram, MapPin, CheckCircle, Loader2, Facebook } from 'lucide-react';
 import { WHATSAPP_NUMBER, EMAIL_ADDRESS, CONTACT_LINKS } from '../constants';
 import { Language } from '../translations';
 
@@ -17,11 +17,9 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
-    // Simulate real-world API latency
     setTimeout(() => {
       setIsSending(false);
       setIsSubmitted(true);
-      // Success message stays for context, reset allowed after 6s
       setTimeout(() => setIsSubmitted(false), 6000);
     }, 1500);
   };
@@ -33,8 +31,8 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
           <div className="space-y-10">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8 bg-[#0B6E4F]"></div>
-                <span className="text-[#0B6E4F] font-black uppercase tracking-[0.2em] text-xs">{t.badge}</span>
+                <div className="h-px w-8 bg-[#1e3a8a]"></div>
+                <span className="text-[#1e3a8a] font-black uppercase tracking-[0.2em] text-xs">{t.badge}</span>
               </div>
               <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight tracking-tight">
                 {t.title}
@@ -45,8 +43,8 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
             </div>
 
             <div className="space-y-6">
-              <a href={CONTACT_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 p-6 bg-[#0B6E4F]/5 text-[#0B6E4F] rounded-[2rem] hover:bg-[#0B6E4F] hover:text-white transition-all border border-[#0B6E4F]/10 group">
-                <div className="w-16 h-16 bg-[#0B6E4F] text-white rounded-2xl flex items-center justify-center shadow-xl shadow-[#0B6E4F]/20 group-hover:bg-white group-hover:text-[#0B6E4F]">
+              <a href={CONTACT_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 p-6 bg-blue-50 text-[#1e3a8a] rounded-[2rem] hover:bg-[#1e3a8a] hover:text-white transition-all border border-blue-100 group">
+                <div className="w-16 h-16 bg-[#1e3a8a] text-white rounded-2xl flex items-center justify-center shadow-xl shadow-blue-900/20 group-hover:bg-white group-hover:text-[#1e3a8a]">
                   <MessageCircle size={32} />
                 </div>
                 <div className="flex-grow">
@@ -56,8 +54,8 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
                 {isRtl ? <ArrowLeft className="transition-transform group-hover:-translate-x-2" size={24} /> : <ArrowRight className="transition-transform group-hover:translate-x-2" size={24} />}
               </a>
 
-              <a href={CONTACT_LINKS.email} className="flex items-center gap-6 p-6 bg-[#1E90FF]/5 text-[#1E90FF] rounded-[2rem] hover:bg-[#1E90FF] hover:text-white transition-all border border-[#1E90FF]/10 group">
-                <div className="w-16 h-16 bg-[#1E90FF] text-white rounded-2xl flex items-center justify-center shadow-xl shadow-[#1E90FF]/20 group-hover:bg-white group-hover:text-[#1E90FF]">
+              <a href={CONTACT_LINKS.email} className="flex items-center gap-6 p-6 bg-slate-50 text-slate-700 rounded-[2rem] hover:bg-slate-900 hover:text-white transition-all border border-slate-100 group">
+                <div className="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center shadow-xl shadow-slate-900/20 group-hover:bg-white group-hover:text-slate-900">
                   <Mail size={32} />
                 </div>
                 <div className="flex-grow">
@@ -76,7 +74,7 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
                     { icon: <Instagram size={20} />, label: 'Instagram', href: CONTACT_LINKS.instagram },
                     { icon: <Facebook size={20} />, label: 'Facebook', href: CONTACT_LINKS.facebook }
                   ].map((social) => (
-                    <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center hover:bg-[#FFD700] hover:text-slate-900 transition-all hover:scale-110 shadow-sm border border-slate-100">
+                    <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center hover:bg-[#f97316] hover:text-white transition-all hover:scale-110 shadow-sm border border-slate-100">
                       {social.icon}
                     </a>
                   ))}
@@ -90,12 +88,12 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
                 <div className="w-20 h-20 bg-emerald-100 text-[#0B6E4F] rounded-full flex items-center justify-center mb-4">
                   <CheckCircle size={48} />
                 </div>
-                <h4 className="text-3xl font-black text-slate-900">{isRtl ? 'تم الإرسال!' : 'Message Sent!'}</h4>
+                <h4 className="text-3xl font-black text-slate-900">{isRtl ? 'تم الإرسال!' : 'Demande reçue !'}</h4>
                 <p className="text-slate-600 font-medium">
-                  {isRtl ? 'شكراً لتواصلكم. سأرد عليكم في أقرب وقت ممكن.' : 'Thank you for reaching out. I will get back to you shortly.'}
+                  {isRtl ? 'شكراً لتواصلكم. سأرد عليكم في أقرب وقت ممكن.' : 'Nous analysons votre demande. Un coordinateur vous contactera sous 30 minutes.'}
                 </p>
-                <button onClick={() => setIsSubmitted(false)} className="text-[#0B6E4F] font-bold text-sm uppercase tracking-widest mt-8 underline">
-                  {isRtl ? 'إرسال رسالة أخرى' : 'Send another message'}
+                <button onClick={() => setIsSubmitted(false)} className="text-[#1e3a8a] font-bold text-sm uppercase tracking-widest mt-8 underline">
+                  {isRtl ? 'إرسال رسالة أخرى' : 'Nouvelle demande'}
                 </button>
               </div>
             ) : (
@@ -105,29 +103,47 @@ const Contact: React.FC<ContactProps> = ({ t, lang }) => {
                   <div className="grid sm:grid-cols-2 gap-6 text-start">
                     <div className="space-y-2">
                       <label className="text-xs font-black uppercase tracking-widest text-slate-500">{t.form_name}</label>
-                      <input required type="text" className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-[#0B6E4F]/10 outline-none transition-all font-medium" />
+                      <input placeholder="Société X" required type="text" className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none transition-all font-medium" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-black uppercase tracking-widest text-slate-500">{t.form_type}</label>
-                      <select className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-[#0B6E4F]/10 outline-none transition-all font-bold appearance-none">
+                      <select className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none transition-all font-bold appearance-none">
                         <option>{t.form_p1}</option>
                         <option>{t.form_p2}</option>
                         <option>{t.form_p3}</option>
                       </select>
                     </div>
                   </div>
+                  
+                  <div className="grid sm:grid-cols-2 gap-6 text-start">
+                    <div className="space-y-2">
+                      <label className="text-xs font-black uppercase tracking-widest text-slate-500">Origine (Lieu)</label>
+                      <div className="relative">
+                        <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
+                        <input placeholder="Ex: Sfax" required type="text" className="w-full pl-12 pr-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none transition-all font-medium" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-black uppercase tracking-widest text-slate-500">Destination (Lieu)</label>
+                      <div className="relative">
+                        <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
+                        <input placeholder="Ex: Tunis" required type="text" className="w-full pl-12 pr-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none transition-all font-medium" />
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="space-y-2 text-start">
                     <label className="text-xs font-black uppercase tracking-widest text-slate-500">{t.form_email}</label>
-                    <input required type="email" className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-[#0B6E4F]/10 outline-none transition-all font-medium" />
+                    <input required type="email" className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none transition-all font-medium" />
                   </div>
                   <div className="space-y-2 text-start">
                     <label className="text-xs font-black uppercase tracking-widest text-slate-500">{t.form_msg}</label>
-                    <textarea required rows={4} className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-[#0B6E4F]/10 outline-none transition-all font-medium resize-none"></textarea>
+                    <textarea placeholder="Poids, volume, date souhaitée..." required rows={3} className="w-full px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-100 outline-none transition-all font-medium resize-none"></textarea>
                   </div>
                   <button 
                     disabled={isSending}
                     type="submit" 
-                    className="w-full bg-[#0B6E4F] text-white font-black py-5 rounded-2xl hover:bg-[#085a40] transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-[#0B6E4F]/30 uppercase tracking-[0.2em] text-sm active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-[#1e3a8a] text-white font-black py-5 rounded-2xl hover:bg-[#172554] transition-all flex items-center justify-center gap-3 group shadow-2xl shadow-blue-900/30 uppercase tracking-[0.2em] text-sm active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSending ? (
                       <Loader2 className="animate-spin" size={20} />

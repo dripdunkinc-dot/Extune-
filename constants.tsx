@@ -1,5 +1,5 @@
 
-export const WHATSAPP_NUMBER = "20200524";
+export const WHATSAPP_NUMBER = "21620200524";
 export const EMAIL_ADDRESS = "tunisia.export.broker@gmail.com";
 
 export const CONTACT_LINKS = {
